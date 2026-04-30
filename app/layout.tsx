@@ -30,31 +30,32 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-     
       <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] text-[var(--font-size)]">
-         <NeonAuthUIProvider authClient={authClient as any}>
-        <header className=" border-b border-[var(--border)] bg-[var(--foreground)]/90 backdrop-blur ">
-          <div className=" mx-auto flex items-center justify-between h-16 w-full max-w-6xl px-4">
-            <Link href="/" className=" text-sm font-extrabold tracking-widess">
-              Event Planner
-            </Link>
-            <nav className="flex items-center gap-4">
+        <NeonAuthUIProvider authClient={authClient as any}>
+          <header className=" border-b border-[var(--border)] bg-[var(--foreground)]/90 backdrop-blur ">
+            <div className=" mx-auto flex items-center justify-between h-16 w-full max-w-6xl px-4">
               <Link
-                href="/dashboard"
-                className=" text-sm text-[var(--muted--foreground)}"
+                href="/"
+                className=" text-sm font-extrabold tracking-widess"
               >
-                Dashboard
+                Event Planner
               </Link>
-              <UserButton />
-            </nav>
-          </div>
-        </header>
-        <main className="flex mx-auto w-full max-w-6xl flex-col flex-1 px-4 py-8">
-          {children}
-        </main>
-         </NeonAuthUIProvider>
+              <nav className="flex items-center gap-4">
+                <Link
+                  href="/dashboard"
+                  className=" text-sm text-[var(--muted--foreground)}"
+                >
+                  Dashboard
+                </Link>
+                <UserButton size="icon" />
+              </nav>
+            </div>
+          </header>
+          <main className="flex mx-auto w-full max-w-6xl flex-col flex-1 px-4 py-8">
+            {children}
+          </main>
+        </NeonAuthUIProvider>
       </body>
-          
     </html>
   );
 }
